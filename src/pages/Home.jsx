@@ -26,14 +26,10 @@ export default () => {
     e.preventDefault();
     alert("formSubmit");
   };
-  const CheckBox = (e) => {
-    console.log(e);
+  const checkBoxChange = (e) => {
     e.target.checked == true
       ? setSpeciality([...speciality, e.target.value])
-      : setSpeciality((prev) => {
-          console.log("inside", prev);
-          // prev.filter((item) => item != e.target.value);
-        });
+      : setSpeciality(speciality.filter((item) => item != e.target.value));
   };
   console.log(name, speciality);
 
@@ -69,7 +65,7 @@ export default () => {
                       className="border-indigo-700 border-2text-black focus:border-indigo-300 ring-transparent"
                       value={item}
                       key={index}
-                      onChange={CheckBox}
+                      onChange={checkBoxChange}
                     />
                     <span className="ml-2 mr-2">{item}</span>
                   </div>
